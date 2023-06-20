@@ -18,7 +18,6 @@ public class HabrCareerDateTimeParserTest extends TestCase {
                 .of(2023, 6, 20, 21, 36, 18));
     }
 
-
     @Test
     void secondTestIsTrue() {
         String dateFromHabr = "2023-06-14T21:30:42+03:00";
