@@ -1,15 +1,11 @@
 package ru.job4j.grabber.utils;
 
 import junit.framework.TestCase;
+import java.time.LocalDateTime;
+import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-
-import java.time.LocalDateTime;
-
-import static org.assertj.core.api.Assertions.*;
-
-public class HabrCareerDateTimeParserTest extends TestCase {
-
+public class HabrCareerDateTimeParserTest {
     @Test
     void firsTestIsTrue() {
         String dateFromHabr = "2023-06-20T21:36:18+03:00";
