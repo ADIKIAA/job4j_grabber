@@ -10,6 +10,14 @@ public class SRP {
         int number;
         Date createDate;
 
+        void setName(String name) {
+            this.name = name;
+        }
+
+        void setNumber(int number) {
+            this.number = number;
+        }
+
         void saveToDB() {
         }
 
@@ -37,7 +45,6 @@ public class SRP {
         }
 
         void logToDB() {
-
         }
     }
 
