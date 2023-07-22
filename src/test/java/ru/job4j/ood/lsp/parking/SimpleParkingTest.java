@@ -34,5 +34,4 @@ public class SimpleParkingTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Недостаточно места для парковки");
     }
-
 }
