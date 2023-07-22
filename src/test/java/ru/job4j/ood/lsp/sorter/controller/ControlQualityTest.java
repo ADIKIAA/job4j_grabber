@@ -81,4 +81,44 @@ public class ControlQualityTest {
         assertThat(trash.findAll()).contains(milk, bread);
     }
 
+    @Test
+    void firstThreeFoodsLocateInWarehouseThenResortAndOneFoodInEachStore() {
+        Food milk = new Food(
+                "milk",
+                LocalDate.now().plus(2, ChronoUnit.MONTHS),
+                LocalDate.now().minus(1, ChronoUnit.DAYS),
+                135.8,
+                23
+        );
+        Food bread = new Food(
+                "bread",
+                LocalDate.now().minus(1, ChronoUnit.DAYS),
+                LocalDate.now().minus(1, ChronoUnit.WEEKS),
+                56.4,
+                0
+        );
+        Food cheese = new Food(
+                "cheese",
+                LocalDate.now().plus(1, ChronoUnit.MONTHS),
+                LocalDate.now().minus(2, ChronoUnit.MONTHS),
+                200.0,
+                10
+        );
+        Store shop = new Shop();
+        Store wareHouse = new Warehouse();
+        Store trash = new Trash();
+        List<Store> stores = new ArrayList<>();
+        wareHouse.add(milk);
+        wareHouse.add(bread);
+        wareHouse.add(cheese);
+        stores.add(shop);
+        stores.add(wareHouse);
+        stores.add(trash);
+        ControlQuality cq = new ControlQuality(stores);
+        cq.resort();
+        assertThat(shop.findAll()).contains(cheese);
+        assertThat(wareHouse.findAll()).contains(milk);
+        assertThat(trash.findAll()).contains(bread);
+    }
+
 }

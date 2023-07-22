@@ -6,10 +6,10 @@ import ru.job4j.ood.lsp.sorter.store.Store;
 import ru.job4j.ood.lsp.sorter.store.Trash;
 import ru.job4j.ood.lsp.sorter.store.Warehouse;
 
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ControlQuality {
@@ -28,6 +28,12 @@ public class ControlQuality {
                 .add(food);
     }
 
+    public void resort() {
+        List<Food> temp = new ArrayList<>();
+        stores.stream().forEach((s) -> temp.addAll(s.getAll()));
+        temp.stream().forEach(this::sort);
+    }
+
     public static void main(String[] args) {
         List<Store> s = new ArrayList<>();
         s.add(new Trash());
@@ -43,6 +49,7 @@ public class ControlQuality {
                 );
         System.out.println(milk);
         cq.sort(milk);
+        cq.resort();
     }
 
 }

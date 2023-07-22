@@ -12,6 +12,8 @@ public interface Store {
 
     void deleteByName(String name);
 
+    List<Food> getAll();
+
     boolean validate(Food food);
 
     int checkDate(Food food);

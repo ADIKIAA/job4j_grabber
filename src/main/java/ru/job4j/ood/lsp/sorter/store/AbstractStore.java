@@ -28,6 +28,13 @@ public abstract class AbstractStore implements Store {
     }
 
     @Override
+    public List<Food> getAll() {
+        List<Food> basket = store;
+        store = new ArrayList<>();
+        return basket;
+    }
+
+    @Override
     public int checkDate(Food food) {
         return (int) (((double) ChronoUnit.DAYS.between(food.getCreateDate(), LocalDate.now())
                 / (double) ChronoUnit.DAYS.between(food.getCreateDate(), food.getExpiryDate())) * 100);
